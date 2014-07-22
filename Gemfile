@@ -9,12 +9,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
 gem 'simple_form'
 gem 'bootstrap-sass'
 group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'spring'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
 end
