@@ -4,7 +4,6 @@
       %h3 Listing dictionaries
 
   .panel-body
-    / TODO: Need to add ajax-based pagination
     #dictionary-search.search
       %form#search.navbar-form.navbar.navbar-left{action: dictionaries_path, method: "get"}
         %input.form-control#searchText{name: "searchText", placeholder: "Search partial match on word/meaning", type: "text", size: 40, value: @searchText}
