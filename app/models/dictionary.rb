@@ -1,5 +1,4 @@
 class Dictionary < ActiveRecord::Base
   default_scope { order(word: :asc) }
-
-  validates_presence_of :word, :meaning
+  validates :word, :meaning, allow_blank: false
 end
