@@ -12,6 +12,7 @@ gem 'simple_form', '~> 3.0.2'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'haml-rails', '~> 0.5.3'
 gem 'autoprefixer-rails', '~> 2.1.1'
+gem 'kaminari'
 
 group :development do
   gem 'spring', '~> 1.1.3'

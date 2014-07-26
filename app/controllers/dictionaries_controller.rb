@@ -4,15 +4,15 @@ class DictionariesController < ApplicationController
   # GET /dictionaries
   # GET /dictionaries.json
   def index
-    @searchText = params[:searchText]
-    if @searchText.blank?
-      @dictionaries = Dictionary.all
-    else
-      table = Dictionary.arel_table
-      search_pattern = "%#{@searchText}%"
-      # TODO: Need to sanitize params against sql-injection?
-      @dictionaries = Dictionary.all.where((table[:word].matches(search_pattern)).or(table[:meaning].matches(search_pattern)))
-    end
+	@searchText = params[:searchText]
+	if @searchText.blank?
+	  @dictionaries = Dictionary.page(params[:page]).per(50)
+	else
+	  table = Dictionary.arel_table
+	  search_pattern = "%#{@searchText}%"
+	  # TODO: Need to sanitize params against sql-injection?
+	  @dictionaries = Dictionary.where((table[:word].matches(search_pattern)).or(table[:meaning].matches(search_pattern))).page(params[:page]).per(50)
+	end
   end
 
   # GET /dictionaries/1
@@ -22,7 +22,7 @@ class DictionariesController < ApplicationController
 
   # GET /dictionaries/new
   def new
-    @dictionary = Dictionary.new
+	@dictionary = Dictionary.new
   end
 
   # GET /dictionaries/1/edit
@@ -32,51 +32,51 @@ class DictionariesController < ApplicationController
   # POST /dictionaries
   # POST /dictionaries.json
   def create
-    @dictionary = Dictionary.new(dictionary_params)
+	@dictionary = Dictionary.new(dictionary_params)
 
-    respond_to do |format|
-      if @dictionary.save
-        format.html { redirect_to @dictionary, notice: 'Dictionary was successfully created.' }
-        format.json { render :show, status: :created, location: @dictionary }
-      else
-        format.html { render :new }
-        format.json { render json: @dictionary.errors, status: :unprocessable_entity }
-      end
-    end
+	respond_to do |format|
+	  if @dictionary.save
+		format.html { redirect_to @dictionary, notice: 'Dictionary was successfully created.' }
+		format.json { render :show, status: :created, location: @dictionary }
+	  else
+		format.html { render :new }
+		format.json { render json: @dictionary.errors, status: :unprocessable_entity }
+	  end
+	end
   end
 
   # PATCH/PUT /dictionaries/1
   # PATCH/PUT /dictionaries/1.json
   def update
-    respond_to do |format|
-      if @dictionary.update(dictionary_params)
-        format.html { redirect_to @dictionary, notice: 'Dictionary was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dictionary }
-      else
-        format.html { render :edit }
-        format.json { render json: @dictionary.errors, status: :unprocessable_entity }
-      end
-    end
+	respond_to do |format|
+	  if @dictionary.update(dictionary_params)
+		format.html { redirect_to @dictionary, notice: 'Dictionary was successfully updated.' }
+		format.json { render :show, status: :ok, location: @dictionary }
+	  else
+		format.html { render :edit }
+		format.json { render json: @dictionary.errors, status: :unprocessable_entity }
+	  end
+	end
   end
 
   # DELETE /dictionaries/1
   # DELETE /dictionaries/1.json
   def destroy
-    @dictionary.destroy
-    respond_to do |format|
-      format.html { redirect_to dictionaries_url, notice: 'Dictionary was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+	@dictionary.destroy
+	respond_to do |format|
+	  format.html { redirect_to dictionaries_url, notice: 'Dictionary was successfully destroyed.' }
+	  format.json { head :no_content }
+	end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dictionary
-      @dictionary = Dictionary.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_dictionary
+	@dictionary = Dictionary.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def dictionary_params
-      params.require(:dictionary).permit(:word, :meaning)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def dictionary_params
+	params.require(:dictionary).permit(:word, :meaning)
+  end
 end
