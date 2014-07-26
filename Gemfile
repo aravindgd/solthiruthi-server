@@ -20,6 +20,7 @@ group :development do
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug', '~> 1.3.2'
   gem 'quiet_assets', '~> 1.0.3'
+  gem 'faker', require: false
 end
 
 group :doc do

@@ -15,11 +15,10 @@
 
 <!-- TODO: Adding border till we get some proper css in place so as to distinguish columns during development -->
 
-%span.dictionary_table_span
-  = render "/dictionaries/dictonary_table", dictionaries: @dictionaries
+.dictionary_table
+  = render "/dictionaries/dictionary_table", dictionaries: @dictionaries
+%br
+.paginator
+  = paginate @dictionaries,remote: true
   %br
-  .paginator
-    = paginate @dictionaries,remote: true
-    %br
-    = page_entries_info @dictionaries
-
+  = page_entries_info @dictionaries

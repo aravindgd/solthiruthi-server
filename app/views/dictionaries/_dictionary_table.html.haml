@@ -1,11 +1,13 @@
 %table{border: "1"}
   %tr
+    %th id
     %th Word
     %th Meaning
     %th{colspan: 3} Actions
 
   - dictionaries.each do |dictionary|
     %tr
+      %td= dictionary.id
       %td= dictionary.word
       %td= dictionary.meaning
       %td= link_to 'Show', dictionary
