@@ -1,16 +1,14 @@
-= form_for @dictionary do |f|
-  - if @dictionary.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@dictionary.errors.count, "error")} prohibited this dictionary from being saved:"
-      %ul
-        - @dictionary.errors.full_messages.each do |msg|
-          %li= msg
+= form_for(@dictionary, html: { class: "form-horizontal", role: "form" }) do |f|
+  = render partial: 'shared/error_messages', locals: { model: @dictionary }
 
-  .field
-    = f.label :word
-    = f.text_area :word
-  .field
-    = f.label :meaning
-    = f.text_area :meaning
-  .actions
-    = f.submit 'Save'
+  .form-group.field
+    = f.label :word, class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_area :word, class: "form-control"
+  .form-group.field
+    = f.label :meaning, class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_area :meaning, class: "form-control"
+  .form-group.field
+    .col-sm-offset-2.col-sm-10
+      = f.submit 'Save', class: "btn btn-default btn-success"

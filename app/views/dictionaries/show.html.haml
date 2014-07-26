@@ -1,12 +1,18 @@
-%p#notice= notice
+.panel.panel-default
+  .panel-heading
+    .page-header
+      %h3 Show dictionary
 
-%p
-  %b Word:
-  = @dictionary.word
-%p
-  %b Meaning:
-  = @dictionary.meaning
+  .panel-body
+    %p#notice= notice
 
-= link_to 'Edit', edit_dictionary_path(@dictionary)
-\|
-= link_to 'Back', dictionaries_path
+    .row
+      %label.col-sm-2 Word
+      = @dictionary.word
+
+    .row
+      %label.col-sm-2 Meaning
+      = @dictionary.meaning
+
+    %a.btn.btn-default{href: edit_dictionary_path(@dictionary)} Edit
+    %a.btn.btn-default{href: dictionaries_path} Back

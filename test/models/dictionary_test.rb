@@ -12,4 +12,12 @@ class DictionaryTest < ActiveSupport::TestCase
     assert_equal c, result[1]
     assert_equal z, result[2]
   end
+
+  test "should validate presence of word" do
+    pending
+  end
+
+  test "should validate presence of meaning" do
+    pending
+  end
 end
