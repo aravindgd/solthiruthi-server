@@ -22,8 +22,8 @@
 /* Rails scaffold style compatibility */
 #error_explanation {
   @extend .alert;
-  @extend .alert-error;
-  @extend .alert-block; /* optional */
+  @extend .alert-error  !optional;
+  @extend .alert-block  !optional;
 
   border: 2px solid red;
   padding: 7px;
