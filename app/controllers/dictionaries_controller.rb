@@ -4,7 +4,15 @@ class DictionariesController < ApplicationController
   # GET /dictionaries
   # GET /dictionaries.json
   def index
-    @dictionaries = Dictionary.all
+    @searchText = params[:searchText]
+    if @searchText.blank?
+      @dictionaries = Dictionary.all
+    else
+      table = Dictionary.arel_table
+      search_pattern = "%#{@searchText}%"
+      # TODO: Need to sanitize params against sql-injection?
+      @dictionaries = Dictionary.all.where((table[:word].matches(search_pattern)).or(table[:meaning].matches(search_pattern)))
+    end
   end
 
   # GET /dictionaries/1
