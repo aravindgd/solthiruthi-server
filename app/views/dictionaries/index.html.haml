@@ -4,7 +4,7 @@
       %h3 Listing dictionaries
 
   .panel-body
-    #dictionary-search.search
+    #dictionary-search.search.navbar
       %form#search.navbar-form.navbar.navbar-left{action: dictionaries_path, method: "get"}
         %input.form-control#searchText{name: "searchText", placeholder: "Search partial match on word/meaning", type: "text", size: 40, value: @searchText}
         %button.btn.btn-default{type: "submit"} Submit
@@ -12,7 +12,7 @@
 
     %br
     .dictionary_table
-      = render "/dictionaries/dictonary_table", dictionaries: @dictionaries
+      = render 'dictionary_table', dictionaries: @dictionaries
       %br
       .paginator
         = paginate @dictionaries, remote: true

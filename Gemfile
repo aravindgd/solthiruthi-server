@@ -12,7 +12,7 @@ gem 'simple_form', '~> 3.0.2'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'haml-rails', '~> 0.5.3'
 gem 'autoprefixer-rails', '~> 2.1.1'
-gem 'kaminari'
+gem 'kaminari', '~> 0.16.1'
 gem 'autoprefixer-rails', '~> 2.1.1'
 
 group :development do
@@ -22,7 +22,7 @@ group :development do
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug', '~> 1.3.2'
   gem 'quiet_assets', '~> 1.0.3'
-  gem 'faker', require: false
+  gem 'faker', '~> 1.4.2', require: false
 end
 
 group :doc do
