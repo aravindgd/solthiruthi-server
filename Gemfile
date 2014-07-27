@@ -13,7 +13,6 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'haml-rails', '~> 0.5.3'
 gem 'autoprefixer-rails', '~> 2.1.1'
 gem 'kaminari', '~> 0.16.1'
-gem 'autoprefixer-rails', '~> 2.1.1'
 
 group :development do
   gem 'spring', '~> 1.1.3'
@@ -25,9 +24,10 @@ group :development do
   gem 'faker', '~> 1.4.2', require: false
 end
 
-# group :test do
-#   gem 'minitest-rails-shoulda'
-# end
+group :test do
+  # gem 'minitest-rails-shoulda'
+  gem 'rake', '~> 10.3.2'
+end
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
