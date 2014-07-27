@@ -31,10 +31,39 @@ rails s
 * Your machine is set up
 * Your site is available over [here](localhost:3000)
 
-
 ### How do I contribute? ###
 
 * The current codebase is missing rspec specs - you can start by adding these.
 * Need to setup deployment scripts using something like capistrano (https://github.com/capistrano/capistrano)
 * Asset processing (minification, etc) can be setup.
 * Run the YSlow/PageSpeed developer tools and fix any issues that they might report.
+
+Application instructions
+========================
+
+## Workflow  - Follow strictly!
+
+### Version control - Git
+
+- [Write good commit messages with proper one line or possible description about commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+- NOTE: *Do NOT use git push -f*
+
+#### Create features
+
+- Use [git flow](https://github.com/nvie/gitflow)
+- Create a feature branch lets say ("performer-dashboard"), once the feature branch is done. Issue a pull request for someone to review and suggest changes, **do not merge into develop or master branch directly**
+
+Eg: Install git flow.
+
+``` bash
+git flow init
+#enter enter all
+git flow feature start payments
+# after few commits
+git flow feature publish payments
+# issue pull request in the github page
+# do changes when suggested and commit, then comment in the issue page
+git flow feature finish payments
+# issue pull request instead of merging the develop branch, until then start working on the next feature
+git flow feature start performer-dashboard
+```
