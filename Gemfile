@@ -24,9 +24,10 @@ group :development do
   gem 'faker', '~> 1.4.2', require: false
 end
 
-# group :test do
-#   gem 'minitest-rails-shoulda'
-# end
+group :test do
+  # gem 'minitest-rails-shoulda'
+  gem 'rake', '~> 10.3.2'
+end
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
