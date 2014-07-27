@@ -1,7 +1,9 @@
-%h1 Editing dictionary
+.panel.panel-default
+  .panel-heading
+    .page-header
+      %h3 Editing dictionary
 
-= render 'form'
-
-= link_to 'Show', @dictionary
-\|
-= link_to 'Back', dictionaries_path
+  .panel-body
+    = render 'form'
+    %a.btn.btn-default{href: dictionary_path(@dictionary)} Show
+    %a.btn.btn-default{href: dictionaries_path} Back

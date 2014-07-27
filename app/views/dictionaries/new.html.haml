@@ -1,5 +1,8 @@
-%h1 New dictionary
+.panel.panel-default
+  .panel-heading
+    .page-header
+      %h3 New dictionary
 
-= render 'form'
-
-= link_to 'Back', dictionaries_path
+  .panel-body
+    = render 'form'
+    %a.btn.btn-default.navbar-left{href: dictionaries_path} Back

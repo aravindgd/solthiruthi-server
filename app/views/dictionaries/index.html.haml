@@ -1,24 +1,20 @@
-%h1 Listing dictionaries
+.panel.panel-default
+  .panel-heading
+    .page-header
+      %h3 Listing dictionaries
 
-<!-- TODO: Need to add ajax-based pagination -->
-#dictionary-search.search{style: "display: block;"}
-  %form#search{action: "/dictionaries", method: "get"}
-    %input#searchText{name: "searchText", type: "text", value: @searchText}
-    %input#btnSearch{type: "submit", value: "Search"}
-  .loader
+  .panel-body
+    #dictionary-search.search.navbar
+      %form#search.navbar-form.navbar.navbar-left{action: dictionaries_path, method: "get"}
+        %input.form-control#searchText{name: "searchText", placeholder: "Search partial match on word/meaning", type: "text", size: 40, value: @searchText}
+        %button.btn.btn-default{type: "submit"} Submit
+      %a.btn.btn-primary.navbar-right{href: new_dictionary_path} New Dictionary
 
-%br
-
-= link_to 'New Dictionary', new_dictionary_path
-
-%br
-
-<!-- TODO: Adding border till we get some proper css in place so as to distinguish columns during development -->
-
-.dictionary_table
-  = render "/dictionaries/dictionary_table", dictionaries: @dictionaries
-%br
-.paginator
-  = paginate @dictionaries,remote: true
-  %br
-  = page_entries_info @dictionaries
+    %br
+    .dictionary_table
+      = render 'dictionary_table', dictionaries: @dictionaries
+    %br
+    .paginator
+      = paginate @dictionaries, remote: true
+      %br
+      = page_entries_info @dictionaries
