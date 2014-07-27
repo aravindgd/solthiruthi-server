@@ -13,8 +13,8 @@
     %br
     .dictionary_table
       = render 'dictionary_table', dictionaries: @dictionaries
+    %br
+    .paginator
+      = paginate @dictionaries, remote: true
       %br
-      .paginator
-        = paginate @dictionaries, remote: true
-        %br
-        = page_entries_info @dictionaries
+      = page_entries_info @dictionaries
