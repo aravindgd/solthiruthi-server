@@ -32,7 +32,7 @@ class DictionariesControllerTest < ActionController::TestCase
 
   test "should create dictionary" do
     assert_difference('Dictionary.count') do
-      post :create, dictionary: { meaning: @dictionary.meaning, word: @dictionary.word }
+      post :create, dictionary: { meaning: "#{@dictionary.meaning}#{Time.now}", word: "#{@dictionary.word}#{Time.now}" }
     end
 
     assert_redirected_to dictionary_path(assigns(:dictionary))
@@ -49,7 +49,7 @@ class DictionariesControllerTest < ActionController::TestCase
   end
 
   test "should update dictionary" do
-    patch :update, id: @dictionary, dictionary: { meaning: @dictionary.meaning, word: @dictionary.word }
+    patch :update, id: @dictionary, dictionary: { meaning: "#{@dictionary.meaning}#{Time.now}", word: "#{@dictionary.word}#{Time.now}" }
     assert_redirected_to dictionary_path(assigns(:dictionary))
   end
 
