@@ -13,7 +13,7 @@ class DictionaryTest < ActiveSupport::TestCase
     assert_equal z, result[2]
   end
 
-  #TODO: All these can be combined if we use the shoulda-style matchers - but that gem seems to be incompativle @ this point
+  #TODO: All these can be combined if we use the shoulda-style matchers - but that gem seems to be incompatible @ this point
   test "should validate presence of word for nil value" do
     d = Dictionary.new
     assert_equal false, d.valid?
