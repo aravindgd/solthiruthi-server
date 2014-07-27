@@ -4,6 +4,10 @@
 
 * This repository is for solthiruthi-server Project.
 
+### Build Status ###
+[![Build Status](https://travis-ci.org/vraravam/solthiruthi-server.png?branch=master)](https://travis-ci.org/vraravam/solthiruthi-server)
+
+
 ### Prerequisites for Project ###
 
 * To develop/run this app, you will need the following system-level pre-requisites already installed:
